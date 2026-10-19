@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadman Shakib | Biotechnology & Computational Biology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Background Layer */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-color: #ffffff;
+        }
+
+        .scroll-section { min-height: 80vh; display: flex; align-items: center; opacity: 0; transition: opacity 0.8s ease-out; }
+        .fade-in { opacity: 1; }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <div id="canvas-container"></div>
+
+    <!-- Hero Section -->
+    <section class="scroll-section p-8 md:p-24" id="hero">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 tracking-tight">SHADMAN<br>SHAKIB</h1>
+            <p class="text-xl md:text-2xl text-gray-600 font-light mb-6">BSc in Biotechnology | BRAC University</p>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-6 text-sm md:text-base text-gray-700 font-medium">
+                <a href="mailto:shadman.shakiblxl@gmail.com" class="hover:text-teal-600 transition-colors">shadman.shakiblxl@gmail.com</a>
+                <span class="hidden sm:inline text-gray-400">•</span>
+                <a href="mailto:shadman.shakib1@g.bracu.ac.bd" class="hover:text-teal-600 transition-colors">shadman.shakib1@g.bracu.ac.bd</a>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-6 text-sm md:text-base text-gray-700 font-medium mt-2">
+                <span>Phone: +880 1560-661064</span>
+                <span class="hidden sm:inline text-gray-400">•</span>
+                <a href="https://github.com/shadmanshakiblxl" target="_blank" rel="noopener noreferrer" class="hover:text-teal-600 transition-colors flex items-center gap-1">
+                    GitHub Profile &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section class="scroll-section p-8 md:p-24" id="about">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-12 rounded-3xl">
+            <h2 class="text-3xl font-semibold mb-8">Professional Summary</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                Biotechnology undergraduate with foundational expertise in biochemistry, microbiology, and laboratory research. Passionate about biological analysis, experimental research, and developing biological systems and prototypes for scientific applications.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="scroll-section p-8 md:p-24" id="experience">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-12 rounded-3xl">
+            <h2 class="text-3xl font-semibold mb-8">Experience</h2>
+            <div class="border-l-2 border-teal-500 pl-6 py-2">
+                <h3 class="text-xl font-bold text-gray-900">BRAC University Youth Leadership Programme</h3>
+                <p class="text-teal-600 font-medium mt-1">January 29 – April 16, 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="scroll-section p-8 md:p-24" id="education">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-12 rounded-3xl">
+            <h2 class="text-3xl font-semibold mb-16">Education</h2>
+            <div class="relative border-l border-teal-200 ml-3">
+                <div class="mb-12 ml-8">
+                    <div class="absolute -left-2 mt-2 w-4 h-4 rounded-full bg-teal-600"></div>
+                    <h3 class="text-xl font-bold">BRAC University</h3>
+                    <p class="text-teal-600">BSc in Biotechnology | SPRING22</p>
+                </div>
+                <div class="mb-12 ml-8">
+                    <div class="absolute -left-2 mt-2 w-4 h-4 rounded-full bg-gray-300"></div>
+                    <h3 class="text-xl font-bold">Dhaka City College</h3>
+                    <p class="text-gray-500">HSC | 2018-2020</p>
+                </div>
+                <div class="mb-12 ml-8">
+                    <div class="absolute -left-2 mt-2 w-4 h-4 rounded-full bg-gray-300"></div>
+                    <h3 class="text-xl font-bold">Dhanmondi Govt Boy's High School</h3>
+                    <p class="text-gray-500">SSC | 2008-2018</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section class="scroll-section p-8 md:p-24" id="innovation">
+        <div class="max-w-4xl w-full bg-gray-900/90 backdrop-blur-sm p-8 md:p-12 rounded-3xl text-white space-y-12">
+            <!-- &GEN Section -->
+            <div>
+                <span class="text-teal-400 font-semibold tracking-widest text-sm uppercase">Innovation</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4 leading-tight">&amp;GEN Integrated Bio Computational System Apps</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-4">
+                    <strong class="text-white">&amp;GEN SENTINEL</strong> — A biological analysis application for specimen identification, genomic profiling, molecular characterization, mutation detection, protein prediction, and evolutionary and ecological inference.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    <strong class="text-white">&amp;GEN GENOMIC MAPPER</strong> — A bioinformatics module that examines DNA mutations from sequence to 3D protein structure to determine their pathogenicity and disease impact.
+                </p>
+                <a href="https://shadmanshakiblxl.github.io/andGEN/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                    View Project &rarr;
+                </a>
+            </div>
+
+            <!-- nGEN-XL Sentinel Section -->
+            <div class="border-t border-gray-800 pt-10">
+                <span class="text-teal-400 font-semibold tracking-widest text-sm uppercase">Diagnostic System</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4 leading-tight">nGEN-XL v5.1 Sentinel</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    An Integrated Cross-Modal Prototype Framework for Real-Time Cytomorphological, Metabolomic, and Transcriptomic Analysis in Computer-Aided System.
+                </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <a href="https://6gxzyd.csb.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                        Test Model
+                    </a>
+                    <a href="https://shadmanshakib1-collab.github.io/nGEN-sentiental-system-/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-gray-800 hover:bg-gray-700 text-teal-300 hover:text-white font-medium px-6 py-3 rounded-xl border border-gray-700 transition-colors duration-300">
+                        View Project &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="scroll-section p-8 md:p-24" id="research">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Research</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6 leading-tight">Integrated Biotechnological Remediation of Urban Lake Pollution: A Practical and Predictive Model for Gudraghat Lake, Badda, Dhaka, Focusing on Manpower Development and Natural Resource Utilization</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                Synthesized multi-system biotechnological interventions (phytoremediation, bioaugmentation, solar aeration) and community-governance frameworks to design an integrated, low-cost restoration model for Gudraghat Lake.
+            </p>
+            <a href="https://shadmanshakiblxl.github.io/Bioremediation-Gudaraghat/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                View Project &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Biostatistics Section -->
+    <section class="scroll-section p-8 md:p-24" id="biostatistics">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Biostatistics</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6 leading-tight">Nutritional Status and Socio-Demographic Determinants of Body Mass Index (BMI) in Bangladesh: A Statistical Analysis of the Bangladesh Demographic and Health Survey (BDHS) 2022</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                Analyzed BDHS 2022 survey data (N=9,946) using IBM SPSS to uncover key socio-demographic drivers of BMI, identifying wealth, residence, and region as statistically significant predictors of nutritional risk.
+            </p>
+            <a href="https://shadmanshakiblxl.github.io/bdhs-2022-bmi-analysis-BiostatisticsProject-/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                View Project &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Bioinformatics Section -->
+    <section class="scroll-section p-8 md:p-24" id="bioinformatics">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Bioinformatics</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6 leading-tight">Comprehensive In Silico Structural Modeling, pET-28a Expression Cloning Strategy, and Cross-Lineage Phylogenetic Examination of BEND7 Gene in the species of Anas georgica (Yellow-Billed Pintail)</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                Designed a directional cloning strategy using BamHI and XhoI restriction enzymes to insert the Anas georgica BEND7 gene into pET-28a, establishing comprehensive PCR, ligation, and multi-step verification protocols (Colony PCR, restriction digest, Sanger sequencing).
+            </p>
+            <a href="https://shadmanshakiblxl.github.io/bend7Gene-bioinformatics-analysis/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                View Project &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Human Genome Project Section -->
+    <section class="scroll-section p-8 md:p-24" id="human-genome">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Human Genome Project</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6 leading-tight">Analysis of Recombination Rates on Human Chromosome 12: Linear Regression of Genetic (cM) versus Physical (Mb) Distance in Female Meiosis</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                Extracted genetic map data using image digitisation software and performed Python-based linear regression analysis to evaluate recombination rate variation (cM/Mb) across female meiotic intervals.
+            </p>
+            <a href="https://shadmanshakiblxl.github.io/HumanGenomeProject-Chromosome-12/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                View Project &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Industrial Biotechnology Section -->
+    <section class="scroll-section p-8 md:p-24" id="industrial-biotech">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Industrial Biotechnology</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6 leading-tight">INDUSTRIAL PRODUCTION STRATEGY: THIRD-GENERATION (3G) BIOETHANOL FROM ALGAL BIOMASS</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                Formulated an industrial production strategy for 3G bioethanol utilizing microalgal biomass (Chlorella vulgaris), incorporating enzymatic hydrolysis, fermentation, and automated PBR optimization techniques.
+            </p>
+            <a href="https://shadmanshakiblxl.github.io/3g-bioethanol-algal-IndustrialBiotechnology/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                View Project &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Paper Review Section -->
+    <section class="scroll-section p-8 md:p-24" id="paper-review">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Paper Review</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6 leading-tight">Comparative Literature Review on Radioecological & Evolutionary Impacts of Nuclear Disasters</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                Evaluated peer-reviewed research on the radioecological and evolutionary impacts of nuclear disasters in Chernobyl and Fukushima, synthesizing findings on animal abundance, physiological stress, and evolutionary adaptation under chronic radiation exposure.
+            </p>
+            <a href="https://drive.google.com/file/d/1CLZvF9uFp74p12GQ7RlaIYnsDkzxI-_b/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                View Paper &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Lab Skills Section -->
+    <section class="scroll-section p-8 md:p-24" id="lab-skills">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-8 gap-2">
+                <div>
+                    <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Laboratory Expertise</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-1">Lab Skills</h2>
+                </div>
+                <span class="inline-block bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                    3 Years Hands-On Experience
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Microbiology -->
+                <div class="bg-white/80 p-6 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> Microbiology
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                        <li>Aseptic technique & microbial culture handling</li>
+                        <li>Streak, spread & pour plate isolation</li>
+                        <li>Selective/differential media — XLD, MSA, Simmons Citrate</li>
+                        <li>Gram staining & bright-field microscopy (oil immersion)</li>
+                        <li>IMViC, oxidase, catalase, TSI, MIU, nitrate reduction, Biuret assay</li>
+                        <li>Kirby–Bauer disk diffusion susceptibility testing</li>
+                        <li>Bacteriophage plaque assay & titer determination</li>
+                    </ul>
+                </div>
+
+                <!-- Molecular Biology -->
+                <div class="bg-white/80 p-6 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> Molecular Biology
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                        <li>Plant (CTAB) & bacterial (alkaline lysis/miniprep) DNA extraction</li>
+                        <li>Agarose gel electrophoresis & visualization</li>
+                        <li>NanoDrop quantification & purity analysis</li>
+                    </ul>
+                </div>
+
+                <!-- Biochemical & Analytical -->
+                <div class="bg-white/80 p-6 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> Biochemical & Analytical
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                        <li>Blood glucose (GOD-POD) & cholesterol (CHOD-POD) estimation</li>
+                        <li>Buffer/standard prep & acid-base titration</li>
+                        <li>Media preparation, autoclaving, serial dilution</li>
+                    </ul>
+                </div>
+
+                <!-- Instrumentation -->
+                <div class="bg-white/80 p-6 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> Instrumentation
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                        <li>Micropipettes, vortex, centrifuge, balance, autoclave, incubator</li>
+                        <li>Compound microscope & NanoDrop spectrophotometer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coursework Section -->
+    <section class="scroll-section p-8 md:p-24" id="coursework">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Academic Curriculum</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-8">Relevant Coursework</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BCH 101</span> Basic Biochemistry</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BCH 102</span> Biophysical Chemistry</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BCH 201</span> Human Physiology</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BCH 202</span> Enzymes and Enzyme Kinetics</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 101</span> Introduction to Biotechnology &amp; Genetic Engineering</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 102</span> Microbial World</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 103</span> Plants and People</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 201</span> Bioorganic Chemistry</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 202</span> Metabolism</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 203</span> Introduction to Molecular Biology</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 204</span> Fundamentals of Genetic Engineering</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 302</span> Microbial Biotechnology</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 303</span> Basic Immunology</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 304</span> Environmental Biotechnology</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 306</span> Industrial Biotechnology</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 307</span> Advanced Molecular Biology</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 401</span> Bioinformatics</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 410</span> Human Genome Project</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 105</span> Biotech Labs I</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 205</span> Biotech Lab II</div>
+                <div class="p-3.5 bg-white/80 rounded-xl border border-gray-100 text-sm"><span class="font-bold text-teal-600">BTE 208</span> Biotech Lab III</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas of Expertise Section -->
+    <section class="scroll-section p-8 md:p-24" id="expertise">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Technical Capabilities</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-10">Areas of Expertise</h2>
+
+            <div class="space-y-12">
+                <!-- Programming & Environments -->
+                <div class="bg-white/80 p-8 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3 flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-teal-600"></span> Programming &amp; Environments
+                    </h3>
+                    <p class="text-gray-700 text-base leading-relaxed mb-6">
+                        Python (Core Data Structures, Control Flow, Functional Programming &amp; Problem Solving); Development via CodeSandbox, Notepad.
+                    </p>
+                    
+                    <div class="border-t border-gray-100 pt-5">
+                        <span class="text-xs font-bold text-teal-600 uppercase tracking-wider block mb-2">Featured Project</span>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">AppleMapple</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Build a modern 3D WebGL snake game built with Python and Three.js featuring real-time collision detection, customizable snake aesthetics, local state saving, and a clean, responsive front-end interface.
+                        </p>
+                        <a href="https://shadmanshakiblxl.github.io/AppleMapple-Game/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300 text-sm">
+                            View Project &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Frontend & Web Visualization -->
+                <div class="bg-white/80 p-8 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3 flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-teal-600"></span> Frontend &amp; Web Visualization
+                    </h3>
+                    <p class="text-gray-700 text-base leading-relaxed mb-6">
+                        Scientific &amp; Research Web Applications utilizing HTML5, CSS3, JavaScript (ES6+), React, Next.js, Vite, Tailwind CSS, JSON, Three.js, and WebGL.
+                    </p>
+                    
+                    <div class="border-t border-gray-100 pt-5">
+                        <span class="text-xs font-bold text-teal-600 uppercase tracking-wider block mb-2">Featured Project</span>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Bio-AI Computational &amp; Visualization Platform</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Developed a web platform showcasing the convergence of biotechnology and computational deep learning for synthetic biology. Integrated 11 real-time 3D WebGL/Three.js models—ranging from genome sequencing to neural connectivity.
+                        </p>
+                        <a href="https://shadmanshakiblxl.github.io/Biotechnology-Meet-MachineLearning/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300 text-sm">
+                            View Project &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- App Development & ML Integration -->
+                <div class="bg-white/80 p-8 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3 flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-teal-600"></span> App Development &amp; ML Integration
+                    </h3>
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        Cross-Platform Application Development embedded with Integrated Deep Learning Models for On-Device Inference.
+                    </p>
+                </div>
+
+                <!-- System Prototyping & Bio-Computational Pipelines -->
+                <div class="bg-white/80 p-8 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3 flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-teal-600"></span> System Prototyping &amp; Bio-Computational Pipelines
+                    </h3>
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        End-to-End Computational Pipelines for Biological Data Processing, and Predictive Analysis Frameworks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quantum Computing Section -->
+    <section class="scroll-section p-8 md:p-24" id="quantum-computing">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Quantum Computing Foundations</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6 leading-tight">Quantum Biotechnology &amp; Algorithmic Modeling</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                Core Principles of Qubits, Quantum Gates, Superposition, Entanglement, and Basic Quantum Algorithms applied toward next-generation biological computational pipelines.
+            </p>
+            
+            <div class="bg-white/80 p-8 rounded-2xl border border-teal-100 shadow-sm">
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-wider block mb-2">Featured Project</span>
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">Quantum Biotechnology Interface</h3>
+                <p class="text-gray-700 text-base leading-relaxed mb-6">
+                    Designed a responsive web platform detailing quantum computing fundamentals and its high-impact applications in drug discovery, genetics, and synthetic biology.
+                </p>
+                <a href="https://shadmanshakiblxl.github.io/QuantumComputing-n-Biotech/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-xl transition-colors duration-300">
+                    View Project &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Communication & Writing Section -->
+    <section class="scroll-section p-8 md:p-24" id="communication">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Publication & Editorial</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4 leading-tight">Communication &amp; Writing</h2>
+            <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                Professional English Proficiency (Spoken &amp; Written), Scientific &amp; Technical Writing, Manuscript &amp; Report Drafting, Creative &amp; Conceptual Writing.
+            </p>
+
+            <div class="space-y-6">
+                <!-- Article 1 -->
+                <div class="bg-white/80 p-6 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        Bangladesh is drizzling the Artistry Essences, Hosting Novel Segments The Lit Fest
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        Cultural &amp; literary commentary exploring Bangladesh's literary landscape and creative expressions.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1dp9treBxa5_ky3eb71mjwHuqEYi40nGI/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-5 py-2.5 rounded-xl transition-colors duration-300 text-sm">
+                        View Article &rarr;
+                    </a>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="bg-white/80 p-6 rounded-2xl border border-teal-100 shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        YOUTH CREATING PEACEFUL FUTURE PROTECT YOUTH PROTECT PEACE
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        Perspective piece on youth leadership, peacebuilding, and societal resilience.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1C0thwGNIfZg4AEcaQtC5fKkyfp3jht8k/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-5 py-2.5 rounded-xl transition-colors duration-300 text-sm">
+                        View Article &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical & Data Tools Section -->
+    <section class="scroll-section p-8 md:p-24" id="tools">
+        <div class="max-w-4xl w-full bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl">
+            <span class="text-teal-600 font-semibold tracking-widest text-sm uppercase">Productivity &amp; Data Suite</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">Technical &amp; Data Tools</h2>
+            
+            <div class="bg-white/80 p-8 rounded-2xl border border-teal-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-3">
+                    <span class="w-3 h-3 rounded-full bg-teal-600 mt-1.5 flex-shrink-0"></span>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Advanced Data Analysis</h3>
+                        <p class="text-gray-700 text-sm">Excel – formulas, functions &amp; data modeling</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="w-3 h-3 rounded-full bg-teal-600 mt-1.5 flex-shrink-0"></span>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Technical Documentation</h3>
+                        <p class="text-gray-700 text-sm">MS Word for comprehensive research reporting &amp; manuscript preparation</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="w-3 h-3 rounded-full bg-teal-600 mt-1.5 flex-shrink-0"></span>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Professional Data Presentation</h3>
+                        <p class="text-gray-700 text-sm">PowerPoint for high-impact scientific disclosures &amp; project presentations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reach Out / Collaboration Section -->
+    <section class="scroll-section p-8 md:p-24" id="contact">
+        <div class="max-w-4xl w-full bg-gray-900/90 backdrop-blur-sm p-8 md:p-12 rounded-3xl text-white">
+            <span class="text-teal-400 font-semibold tracking-widest text-sm uppercase">Get In Touch</span>
+            <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-6 leading-tight">Reach Out / Collaboration</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl">
+                Interested in biological research, computational model development, or interdisciplinary biotechnology projects? Feel free to reach out for research opportunities, joint projects, or inquiries.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-8">
+                <a href="mailto:shadman.shakiblxl@gmail.com" class="p-4 bg-gray-800/80 hover:bg-gray-800 rounded-xl border border-gray-700 transition-colors flex flex-col gap-1">
+                    <span class="text-teal-400 text-xs font-semibold uppercase">Primary Email</span>
+                    <span class="font-medium">shadman.shakiblxl@gmail.com</span>
+                </a>
+                <a href="mailto:shadman.shakib1@g.bracu.ac.bd" class="p-4 bg-gray-800/80 hover:bg-gray-800 rounded-xl border border-gray-700 transition-colors flex flex-col gap-1">
+                    <span class="text-teal-400 text-xs font-semibold uppercase">Academic Email</span>
+                    <span class="font-medium">shadman.shakib1@g.bracu.ac.bd</span>
+                </a>
+                <div class="p-4 bg-gray-800/80 rounded-xl border border-gray-700 flex flex-col gap-1">
+                    <span class="text-teal-400 text-xs font-semibold uppercase">Phone</span>
+                    <span class="font-medium">+880 1560-661064</span>
+                </div>
+                <a href="https://github.com/shadmanshakiblxl" target="_blank" rel="noopener noreferrer" class="p-4 bg-gray-800/80 hover:bg-gray-800 rounded-xl border border-gray-700 transition-colors flex flex-col gap-1">
+                    <span class="text-teal-400 text-xs font-semibold uppercase">GitHub</span>
+                    <span class="font-medium flex items-center gap-1">github.com/shadmanshakiblxl &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-8 text-center text-sm text-gray-500 border-t border-gray-200/50 bg-white/40 backdrop-blur-sm">
+        <p class="font-medium">built &amp; developed by <span class="text-gray-900 font-semibold tracking-wide">SHADMAN SHAKIB</span></p>
+    </footer>
+
+    <script>
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 6;
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0xffffff, 0); 
+        container.appendChild(renderer.domElement);
+
+        const dnaGroup = new THREE.Group();
+        scene.add(dnaGroup);
+
+        const matTeal = new THREE.MeshBasicMaterial({ color: 0x0d9488 });
+        const matCyan = new THREE.MeshBasicMaterial({ color: 0x0891b2 });
+        const rungLineMat = new THREE.LineBasicMaterial({ color: 0x0d9488, transparent: true, opacity: 0.2 });
+
+        for (let i = 0; i < 80; i++) {
+            const t = (i / 80) * Math.PI * 8;
+            const y = (i - 40) * 0.12;
+            const radius = 1.2;
+            const node1 = new THREE.Mesh(new THREE.SphereGeometry(0.04), i % 2 === 0 ? matTeal : matCyan);
+            node1.position.set(Math.sin(t) * radius, y, Math.cos(t) * radius);
+            dnaGroup.add(node1);
+            const node2 = new THREE.Mesh(new THREE.SphereGeometry(0.04), i % 2 === 0 ? matCyan : matTeal);
+            node2.position.set(Math.sin(t + Math.PI) * radius, y, Math.cos(t + Math.PI) * radius);
+            dnaGroup.add(node2);
+            if (i % 3 === 0) {
+                const rung = new THREE.Line(new THREE.BufferGeometry().setFromPoints([node1.position, node2.position]), rungLineMat);
+                dnaGroup.add(rung);
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            dnaGroup.rotation.y += 0.005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('fade-in'); });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.scroll-section').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
